@@ -5,8 +5,11 @@ import CountryItem from "./CountryItem";
 import Message from "./Message";
 
 import styles from "./CountryList.module.css";
+import { useCities } from "../context/CitiesContext";
 
-function CountryList({ cities, isLoading }) {
+function CountryList() {
+  const { cities, isLoading } = useCities();
+
   const countries = cities.reduce((arr, city) => {
     if (arr.map((el) => el.country).includes(city.country)) {
       return arr;
